@@ -19,20 +19,25 @@ public class ECIPayment {
     }
     
     public boolean processPayment(PaymentFactory factory, double amount, String customerId, 
-                                String description, String customerName, String customerEmail, String productId) {
+                                String description, String customerName, String customerEmail, 
+                                String productId) {
         
-        System.out.println("🚀 ECI Payments: Starting payment process...");
+        System.out.println("========================================");
+        System.out.println("ECI Payments: Starting payment process...");
         System.out.println("Customer: " + customerName + " (" + customerEmail + ")");
         System.out.println("Amount: $" + amount);
         System.out.println("Description: " + description);
-        System.out.println("----------------------------------------");
+        System.out.println("========================================");
         
         PaymentMethod payment = factory.createPaymentMethod(amount, customerId, description);
         
         boolean success = payment.processPayment();
- 
+        
+        System.out.println();
         if (success) {
             System.out.println("Payment processed successfully!");
+            System.out.println("Notifying observers...");
+            System.out.println();
             notifyPaymentSuccess(payment, customerName, customerEmail, productId);
         } else {
             System.out.println("Payment failed!");
@@ -46,6 +51,7 @@ public class ECIPayment {
                                     String customerEmail, String productId) {
         for (PaymentObserver observer : observers) {
             observer.onPaymentSuccess(payment, customerName, customerEmail, productId);
+            System.out.println();
         }
     }
     

@@ -28,7 +28,7 @@ public class Inventory {
         if (stock.containsKey(productId) && stock.get(productId) >= quantity) {
             int currentStock = stock.get(productId);
             stock.put(productId, currentStock - quantity);
-            System.out.println("✅ Inventory: Discounted " + quantity + " units of " + 
+            System.out.println("Inventory: Discounted " + quantity + " units of " + 
                              products.get(productId).getName());
             System.out.println("   Remaining stock: " + stock.get(productId));
             return true;

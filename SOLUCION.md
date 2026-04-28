@@ -10,7 +10,7 @@ Sistema de alquiler de películas que permite registrar películas (físicas o d
 
 ## Prompts Utilizados para la Solución
 
-### PROMPT #1: Arquitectura Base del Sistema
+### PROMPT #1:
 ```
 Necesito diseñar un sistema de alquiler de películas en Java con estos requerimientos:
 - Las películas pueden ser físicas o digitales
@@ -23,7 +23,7 @@ Necesito diseñar un sistema de alquiler de películas en Java con estos requeri
 Dame la estructura de clases necesarias y cómo implementarías el polimorfismo para que el cálculo de precio sea diferente según el tipo de película.
 ```
 
-### PROMPT #2: Implementación Detallada y Output
+### PROMPT #2: 
 ```
 Ahora implementa el sistema completo con:
 1. Una clase Movie abstracta o interfaz con subclases PhysicalMovie y DigitalMovie

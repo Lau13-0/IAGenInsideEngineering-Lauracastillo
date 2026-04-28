@@ -2,7 +2,7 @@ package eci.edu.byteProgramming.ejercicio.paper.util;
 
 import java.util.Date;
 
-public abstract class PaymentMethod implements ValidatePayment{
+public abstract class PaymentMethod {
     protected double amount;
     protected String transactionID;
     protected String customerID;
@@ -11,9 +11,9 @@ public abstract class PaymentMethod implements ValidatePayment{
     protected PaymentStatus status;
     protected String description;
 
-    public PaymentMethod(double amount, String transactionID, String description) {
+    public PaymentMethod(double amount, String customerId, String description) {
         this.amount = amount;
-        this.customerID = customerID;
+        this.customerID = customerId;
         this.description = description;
         this.currency = "USD";
         this.status = PaymentStatus.PENDING;
@@ -22,6 +22,7 @@ public abstract class PaymentMethod implements ValidatePayment{
     }
 
     public abstract boolean processPayment();
+    public abstract boolean validatePaymentMethod();
     public abstract String getPaymentMethod();
 
     protected String generateTransactionId() {
